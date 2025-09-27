@@ -22,7 +22,7 @@ public class UIVirtualButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         OutputButtonStateValue(false);
     }
-
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         OutputButtonClickEvent();
@@ -37,4 +37,5 @@ public class UIVirtualButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     {
         buttonClickOutputEvent.Invoke();
     }
+
 }

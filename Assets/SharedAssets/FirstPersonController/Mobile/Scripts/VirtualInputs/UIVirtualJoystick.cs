@@ -6,7 +6,7 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
 {
     [System.Serializable]
     public class Event : UnityEvent<Vector2> { }
-
+    
     [Header("Rect References")]
     public RectTransform containerRect;
     public RectTransform handleRect;
@@ -42,9 +42,9 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
     {
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(containerRect, eventData.position, eventData.pressEventCamera, out Vector2 position);
-
+        
         position = ApplySizeDelta(position);
-
+        
         Vector2 clampedPosition = ClampValuesToMagnitude(position);
 
         Vector2 outputPosition = ApplyInversionFilter(position);
@@ -55,7 +55,7 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
         {
             UpdateHandleRectPosition(clampedPosition * joystickRange);
         }
-
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -109,5 +109,5 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
     {
         return -value;
     }
-
+    
 }
